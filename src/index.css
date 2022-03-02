@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@layer components {
+  .nav {
+    @apply flex flex-col justify-center h-14 relative;
+  }
+
+  .nav-part {
+    @apply flex items-center;
+  }
+
+  .avatar {
+    @apply w-8 h-8;
+  }
+
+  .menu {
+    @apply hidden bg-White top-0 left-0 h-screen w-4/5 z-10 px-8 pt-24;
+  }
+
+  .menu li {
+    @apply mb-6 font-bold text-lg;
+  }
+
+  .cart-card {
+    @apply absolute bg-White top-16 z-10 py-3 px-5 rounded-md mx-3 w-[calc(100%_-_1.5rem)];
+  }
+
+  .cart-card h3 {
+    @apply font-bold;
+  }
+
+  .cart-info {
+    @apply h-32 text-center;
+  }
+
+  .product-card {
+    @apply mx-8 my-4 font-Kumbh-Sans;
+  }
+
+  .company {
+    @apply uppercase text-Orange font-bold text-sm tracking-wider;
+  }
+
+  .name {
+    @apply text-3xl mt-2 font-bold;
+  }
+
+  .description {
+    @apply mt-4 text-Dark-grayish-blue;
+  }
+
+  .price {
+    @apply flex justify-between mt-6;
+  }
+
+  .curr-price {
+    @apply text-2xl mr-6 font-bold;
+  }
+
+  .discount {
+    @apply bg-Pale-orange text-Orange px-1 rounded-md font-bold;
+  }
+
+  .orgi-price {
+    @apply text-Grayish-blue line-through;
+  }
+
+  .add-to-cart {
+    @apply w-full mt-4;
+  }
+
+  .count {
+    @apply bg-Light-grayish-blue rounded-md py-3 px-4 flex justify-between items-center font-bold;
+  }
+
+  .btn-cart {
+    @apply bg-Orange text-White rounded-md p-3 text-center w-full mt-4;
+  }
+}
