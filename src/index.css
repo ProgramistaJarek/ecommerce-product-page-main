@@ -14,7 +14,7 @@
 
 @layer components {
   .nav {
-    @apply flex flex-col justify-center h-14 relative;
+    @apply flex flex-col justify-center h-14 relative tablet:mt-6;
   }
 
   .nav-part {
@@ -22,19 +22,27 @@
   }
 
   .avatar {
-    @apply w-8 h-8;
+    @apply w-8 h-8 tablet:w-10 tablet:h-10 tablet:rounded-full tablet:border-2 tablet:hover:border-Orange tablet:border-transparent cursor-pointer;
   }
 
   .menu {
-    @apply hidden bg-White top-0 left-0 h-screen w-4/5 z-10 px-8 pt-24;
+    @apply hidden absolute bg-White top-0 left-0 h-screen w-4/5 px-8 pt-24 tablet:relative tablet:flex tablet:flex-row tablet:p-0 tablet:h-auto tablet:bg-opacity-0 tablet:ml-8;
   }
 
   .menu li {
-    @apply mb-6 font-bold text-lg;
+    @apply mb-6 font-bold text-lg tablet:m-0 tablet:mr-4 tablet:font-normal text-Grayish-blue cursor-pointer tablet:text-base tablet:border-b-4 tablet:border-transparent tablet:hover:border-Orange tablet:hover:text-Black tablet:hover:font-bold tablet:pb-8 tablet:after:content-[attr(data-text)] tablet:after:block  tablet:after:h-0 tablet:after:invisible tablet:after:overflow-hidden tablet:after:font-bold;
   }
 
   .cart-card {
-    @apply absolute bg-White top-16 z-10 py-3 px-5 rounded-md mx-3 w-[calc(100%_-_1.5rem)];
+    @apply hidden absolute bg-White top-16 z-10 py-3 px-5 rounded-md mx-3 w-[calc(100%_-_1.5rem)] drop-shadow-2xl tablet:right-0 tablet:w-2/6;
+  }
+
+  .menu-active {
+    @apply block tablet:flex;
+  }
+
+  .menu-active-cart {
+    @apply block;
   }
 
   .cart-card h3 {
@@ -42,11 +50,23 @@
   }
 
   .cart-info {
-    @apply h-32 text-center;
+    @apply h-20 flex items-center justify-between;
+  }
+
+  .img-cart {
+    @apply w-16 h-16 rounded-md;
+  }
+
+  .product {
+    @apply tablet:flex tablet:py-5 tablet:px-14 tablet:mt-12 laptop:py-10 laptop:px-28;
+  }
+
+  .product-img {
+    @apply tablet:w-1/2 tablet:h-1/2 tablet:rounded-3xl;
   }
 
   .product-card {
-    @apply mx-8 my-4 font-Kumbh-Sans;
+    @apply mx-8 my-4 font-Kumbh-Sans laptop:ml-16 laptop:mt-16;
   }
 
   .company {
@@ -54,7 +74,7 @@
   }
 
   .name {
-    @apply text-3xl mt-2 font-bold;
+    @apply text-3xl mt-2 font-bold laptop:text-4xl;
   }
 
   .description {
@@ -62,11 +82,11 @@
   }
 
   .price {
-    @apply flex justify-between mt-6;
+    @apply flex justify-between mt-6 tablet:flex-col;
   }
 
   .curr-price {
-    @apply text-2xl mr-6 font-bold;
+    @apply text-2xl mr-6 font-bold tablet:mr-2;
   }
 
   .discount {
@@ -78,11 +98,11 @@
   }
 
   .add-to-cart {
-    @apply w-full mt-4;
+    @apply w-full mt-4 tablet:flex;
   }
 
   .count {
-    @apply bg-Light-grayish-blue rounded-md py-3 px-4 flex justify-between items-center font-bold;
+    @apply bg-Light-grayish-blue rounded-md py-3 px-4 flex justify-between items-center font-bold tablet:w-3/5 tablet:mr-2 laptop:mr-8;
   }
 
   .btn-cart {

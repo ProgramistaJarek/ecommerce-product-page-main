@@ -1,7 +1,11 @@
 function Product({ count, onCountChange, onSetAddItems }) {
   return (
     <div className="product">
-      <img src="/images/image-product-1.jpg" alt="product" />
+      <img
+        className="product-img"
+        src="/images/image-product-1.jpg"
+        alt="product"
+      />
       <ProductInfo
         company="Sneaker Company"
         name="Fall Limited Edition Sneakers"
@@ -43,6 +47,7 @@ const ProductInfo = ({
       <div className="add-to-cart">
         <div className="count">
           <img
+            className="cursor-pointer"
             src="/images/icon-minus.svg"
             alt="minus"
             onClick={() =>
@@ -53,12 +58,21 @@ const ProductInfo = ({
           />
           <p>{count}</p>
           <img
+            className="cursor-pointer"
             src="/images/icon-plus.svg"
             alt="plus"
             onClick={() => onCountChange(count + 1)}
           />
         </div>
-        <button className="btn-cart" type="submit" onClick={() => onSetAddItems(true)}>
+        <button
+          className="btn-cart tablet:mt-0"
+          type="submit"
+          onClick={() =>
+            count === 0
+              ? alert("you have to pick how many elements you want to add")
+              : onSetAddItems(true)
+          }
+        >
           Add to cart
         </button>
       </div>

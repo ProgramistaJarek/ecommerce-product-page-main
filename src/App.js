@@ -7,12 +7,14 @@ function App() {
   const [cart, setCart] = useState(0);
   const [addItems, setAddItems] = useState(false);
   return (
-    <div className="App">
+    <div className="App max-w-[1440px] mx-auto">
       <Nav
         count={count}
+        onCountChange={setCount}
         cart={cart}
         onCartChange={setCart}
         addItems={addItems}
+        onSetAddItems={setAddItems}
       />
       <Product
         count={count}
