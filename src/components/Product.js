@@ -1,11 +1,65 @@
+import { useState } from "react";
+
+const SliderData = [
+  { image: "/images/image-product-1.jpg" },
+  { image: "/images/image-product-2.jpg" },
+  { image: "/images/image-product-3.jpg" },
+  { image: "/images/image-product-4.jpg" },
+];
+
 function Product({ count, onCountChange, onSetAddItems }) {
+  const [current, setCurrent] = useState(0);
+  const length = SliderData.length;
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const previousSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
   return (
     <div className="product">
-      <img
-        className="product-img"
-        src="/images/image-product-1.jpg"
-        alt="product"
-      />
+      <div className="slider">
+        <img
+          className="icon icon-next"
+          src="/images/icon-next.svg"
+          alt="next"
+          onClick={nextSlide}
+        />
+        <img
+          className="icon icon-previous"
+          src="/images/icon-previous.svg"
+          alt="previous"
+          onClick={previousSlide}
+        />
+        {SliderData.map((slide, index) => {
+          return (
+            <div className={index === current ? "slide active" : "slide"}>
+              <SliderImage img={slide.image} />
+            </div>
+          );
+        })}
+        <div className="thumbnail tablet:flex">
+          {SliderData.map((slide, index) => {
+            return (
+              <div
+                className={
+                  index === current
+                    ? " thumbnail-active "
+                    : "thumbnail-no-active "
+                }
+                onClick={() => {
+                  index ? setCurrent(index) : setCurrent(index);
+                }}
+              >
+                <SliderImage img={slide.image} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
       <ProductInfo
         company="Sneaker Company"
         name="Fall Limited Edition Sneakers"
@@ -78,6 +132,10 @@ const ProductInfo = ({
       </div>
     </div>
   );
+};
+
+const SliderImage = ({ img }) => {
+  return <img className="product-img" src={img} alt="product" />;
 };
 
 export default Product;

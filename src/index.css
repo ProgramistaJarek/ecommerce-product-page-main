@@ -21,12 +21,16 @@
     @apply flex items-center;
   }
 
+  .show-how-many-item {
+    @apply absolute -top-2 -right-2 bg-Orange text-white w-5 h-4 rounded-full items-center justify-center;
+  }
+
   .avatar {
     @apply w-8 h-8 tablet:w-10 tablet:h-10 tablet:rounded-full tablet:border-2 tablet:hover:border-Orange tablet:border-transparent cursor-pointer;
   }
 
   .menu {
-    @apply hidden absolute bg-White top-0 left-0 h-screen w-4/5 px-8 pt-24 tablet:relative tablet:flex tablet:flex-row tablet:p-0 tablet:h-auto tablet:bg-opacity-0 tablet:ml-8;
+    @apply hidden absolute bg-White top-0 left-0 h-screen w-4/5 px-8 pt-24 z-30 tablet:relative tablet:flex tablet:flex-row tablet:p-0 tablet:h-auto tablet:bg-opacity-0 tablet:ml-8;
   }
 
   .menu li {
@@ -34,7 +38,7 @@
   }
 
   .cart-card {
-    @apply hidden absolute bg-White top-16 z-10 py-3 px-5 rounded-md mx-3 w-[calc(100%_-_1.5rem)] drop-shadow-2xl tablet:right-0 tablet:w-2/6;
+    @apply hidden absolute bg-White top-16 z-20 py-3 px-5 rounded-md mx-3 w-[calc(100%_-_1.5rem)] drop-shadow-2xl tablet:right-0 tablet:w-2/6;
   }
 
   .menu-active {
@@ -61,8 +65,48 @@
     @apply tablet:flex tablet:py-5 tablet:px-14 tablet:mt-12 laptop:py-10 laptop:px-28;
   }
 
+  .slider {
+    @apply relative;
+  }
+
+  .slide {
+    @apply hidden w-full;
+  }
+
+  .active {
+    @apply block;
+  }
+
+  .icon {
+    @apply bg-white p-2 w-8 h-8 rounded-full;
+  }
+
+  .icon-next {
+    @apply absolute top-1/2 right-8 z-10 cursor-pointer;
+  }
+
+  .icon-previous {
+    @apply absolute top-1/2 left-8 z-10 cursor-pointer;
+  }
+
   .product-img {
-    @apply tablet:w-1/2 tablet:h-1/2 tablet:rounded-3xl;
+    @apply tablet:rounded-3xl;
+  }
+
+  .thumbnail {
+    @apply absolute w-full mt-8 hidden flex-row justify-between;
+  }
+
+  .thumbnail-active {
+    @apply mx-2 border-2 border-Orange rounded-lg opacity-50;
+  }
+
+  .thumbnail-no-active {
+    @apply mx-2 border-2 border-transparent;
+  }
+
+  .thumbnail .product-img {
+    @apply rounded-md cursor-pointer;
   }
 
   .product-card {

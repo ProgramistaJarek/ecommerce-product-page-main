@@ -47,7 +47,7 @@ function Nav({
         <div className="nav-part">
           {menu ? (
             <img
-              className="z-10 tablet:hidden"
+              className="z-50 tablet:hidden"
               src="/images/icon-close.svg"
               alt="open"
               onClick={() => {
@@ -56,7 +56,7 @@ function Nav({
             />
           ) : (
             <img
-              className="z-10 tablet:hidden"
+              className="z-50 tablet:hidden"
               src="/images/icon-menu.svg"
               alt="open"
               onClick={() => {
@@ -88,14 +88,19 @@ function Nav({
           </ul>
         </div>
         <div className="nav-part tablet:pb-5">
-          <img
-            className="cursor-pointer"
-            src="/images/icon-cart.svg"
-            alt="cart"
-            onClick={() => {
-              setCartMenu(!cartMenu);
-            }}
-          />
+          <div className="relative">
+            <img
+              className={"cursor-pointer"}
+              src="/images/icon-cart.svg"
+              alt="cart"
+              onClick={() => {
+                setCartMenu(!cartMenu);
+              }}
+            />
+            <p className={countSave ? "show-how-many-item flex" : "hidden "}>
+              {countSave}
+            </p>
+          </div>
           <img
             className="avatar ml-4"
             src="/images/image-avatar.png"
@@ -129,6 +134,7 @@ function Nav({
                   </div>
                 </div>
                 <img
+                  className="cursor-pointer"
                   src="/images/icon-delete.svg"
                   alt="img"
                   onClick={() => {
